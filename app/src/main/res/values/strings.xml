@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Alura Viagens</string>
+    <string name="especiais">Especiais</string>
+    <string name="brasil">Brasil</string>
+    <string name="sp">São Paulo</string>
+    <string name="doisDias">2 dias</string>
+    <string name="preco">R$ 243,99</string>
+</resources>
