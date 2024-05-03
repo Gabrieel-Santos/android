@@ -70,7 +70,7 @@ public class ListaPacotesAdapter extends BaseAdapter {
     }
 
     private void mostraImagem(View viewCriada, Pacote pacote) {
-        ImageView imagem = viewCriada.findViewById(R.id.item_pacote_imagem);
+        ImageView imagem = viewCriada.findViewById(R.id.resumo_pacote_imagem);
         Drawable drawableImagemPacote = ResoucerUtil.devolveDrawable(context, pacote.getImagem());
         imagem.setImageDrawable(drawableImagemPacote);
     }
