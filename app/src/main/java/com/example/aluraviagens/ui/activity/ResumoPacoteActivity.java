@@ -18,6 +18,8 @@ import com.example.aluraviagens.util.MoedaUtil;
 import com.example.aluraviagens.util.ResoucerUtil;
 
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 public class ResumoPacoteActivity extends AppCompatActivity {
 
@@ -26,6 +28,8 @@ public class ResumoPacoteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_resumo_pacote);
+        setTitle("Resumo do pacote");
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -48,5 +52,15 @@ public class ResumoPacoteActivity extends AppCompatActivity {
         TextView preco = findViewById(R.id.resumo_pacote_preco);
         String moedaBrasileira = MoedaUtil.formataParaBrasileiro(pacoteSaoPaulo.getPreco());
         preco.setText(moedaBrasileira);
+
+        TextView data = findViewById(R.id.resumo_pacote_data);
+        Calendar dataIda = Calendar.getInstance();
+        Calendar dataVolta = Calendar.getInstance();
+        dataVolta.add(Calendar.DATE, pacoteSaoPaulo.getDias());
+        SimpleDateFormat formatoBrasileiro = new SimpleDateFormat("dd/MM");
+        String dataFormatadaIda = formatoBrasileiro.format(dataIda.getTime());
+        String dataFormatadaVolta = formatoBrasileiro.format(dataVolta.getTime());
+        String dataFormatadaDaViagem = dataFormatadaIda + " - " + dataFormatadaVolta + " de " + dataVolta.get(Calendar.YEAR);
+        data.setText(dataFormatadaDaViagem);
     }
 }
